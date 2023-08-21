@@ -24,7 +24,11 @@ function EditableTable({
     setColumns(initialColumns[chartType])
     setRows(initialRows[chartType])
   };
-
+  
+  useEffect(() => {
+    initializeTable()
+  }, [chartType]);
+  
   const addRow = () => {
     setRows([...rows, Array(columns.length).fill('')]);
   };
@@ -54,17 +58,13 @@ function EditableTable({
     },
     [rows, setRows]
   );
-
-  useEffect(() => {
-    initializeTable()
-  },[chartType]);
-
+  
   return (
     <TableContainer component={Paper}>
       <Table>
         <TableHead>
           <TableRow>
-            {columns?.map((column, columnIndex) => (
+            {columns.map((column, columnIndex) => (
               <TableCell key={columnIndex}>
                 <TextField
                   value={column}
@@ -75,7 +75,7 @@ function EditableTable({
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows?.map((row, rowIndex) => (
+          {rows.map((row, rowIndex) => (
             <TableRow key={rowIndex}>
               {row.map((cell, columnIndex) => (
                 <TableCell key={columnIndex}>

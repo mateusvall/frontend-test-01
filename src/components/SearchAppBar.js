@@ -49,7 +49,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 function SearchAppBar({setFilterText}) {
-  
   return (
       <AppBar position="static" style={{backgroundColor:'#B2B5C2'}}>
         <Toolbar sx={{justifyContent:'space-between' }}>
