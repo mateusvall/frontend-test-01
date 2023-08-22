@@ -1,5 +1,4 @@
 import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
 import { chartSettings } from '../configs/chartSettings';
 import {
   Paper,
@@ -57,14 +56,6 @@ function PaperTableChart({chart, chartsCreated, setChartsCreated}) {
     handleMenuClose();
   }, [chartsCreated, chart.id]);
 
-  // const addColumn = () => {
-  //   const newColumn = `Column ${columns.length + 1}`;
-  //   setColumns([...columns, newColumn]);
-
-  //   const newRows = rows.map((row) => [...row, '']);
-  //   setRows(newRows);
-  // };
-
   const addRow = () => {
     const newRow = Array.from({ length: columns.length }, () => '');
     setRows([...rows, newRow]);
@@ -116,13 +107,7 @@ function PaperTableChart({chart, chartsCreated, setChartsCreated}) {
                       />
                     </TableCell>
                   ))}
-                  {editMode && chart.chartType !== 'line' &&(
-                    <TableCell>
-                      {/* <Button variant="outlined" color="primary" onClick={addColumn}>
-                        Add Column
-                      </Button> */}
-                    </TableCell>
-                  )}
+                 
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -163,24 +148,6 @@ function PaperTableChart({chart, chartsCreated, setChartsCreated}) {
       )}
     </Paper>
   );
-};
-
-PaperTableChart.propTypes = {
-  chart: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    chartName: PropTypes.string.isRequired,
-    chartType: PropTypes.oneOf(['line', 'pie']).isRequired,
-    columns: PropTypes.arrayOf(PropTypes.string).isRequired,
-    rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired
-  }).isRequired,
-  chartsCreated: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    chartName: PropTypes.string.isRequired,
-    chartType: PropTypes.oneOf(['line', 'pie']).isRequired,
-    columns: PropTypes.arrayOf(PropTypes.string).isRequired,
-    rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired
-  })).isRequired,
-  setChartsCreated: PropTypes.func.isRequired
 };
 
 export default PaperTableChart;
