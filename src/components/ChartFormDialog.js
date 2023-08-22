@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   Dialog,
   DialogTitle,
@@ -97,12 +96,5 @@ function ChartFormDialog({
     </Dialog>
   );
 }
-
-ChartFormDialog.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  chartsCreated: PropTypes.array.isRequired,
-  setChartsCreated: PropTypes.func.isRequired,
-};
 
 export default ChartFormDialog;
