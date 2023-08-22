@@ -12,7 +12,8 @@ import {
   Button,
   Menu,
   MenuItem,
-  IconButton
+  IconButton,
+  Divider
 } from '@mui/material';
 
 import MoreVertIcon from '@mui/icons-material/MoreVert';
@@ -93,6 +94,7 @@ function PaperTableChart({chart, chartsCreated, setChartsCreated}) {
           <MenuItem onClick={handleDeleteChart}>{'Delete Chart'}</MenuItem>
         </Menu>
       </div>
+      <Divider sx={{ borderBottomWidth: 5, marginBottom: 10 }}/>
       {editMode 
         ? (<TableContainer>
             <Table>
